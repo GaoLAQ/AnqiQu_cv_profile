@@ -1,60 +1,52 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+    <v-card dark id="name-section">
+      <v-card-text>
+        <p class="text-left font-weight-medium ml-2 mb-8 mt-6 logo-name">
+          Anqi Qu
+        </p>
+      </v-card-text>
+      <v-divider borderWidth="10" class="mx-5 white"></v-divider>
+      <v-card-actions id="nav" class="mx-6 d-flex justify-start mb-2">
+        <router-link to="/">Home</router-link>
+        <router-link to="/music">Music</router-link>
+        <router-link to="/videos">Videos</router-link>
+        <router-link to="/anqiCv"> CV </router-link>
+      </v-card-actions>
+    </v-card>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <HelloWorld/>
-    </v-main>
+    <router-view />
   </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld';
+<style lang="scss">
+.logo-name {
+  font-family: "Times New Roman", Times, sans-serif !important;
+  font-size: 80px;
+}
+.name-section {
+  font-size: 20px;
+  padding: 10px 10px;
+}
+.theme--dark.v-divider {
+  border-color: rgba(255, 255, 255, 0.12);
+  border-width: 2px;
+}
 
-export default {
-  name: 'App',
+p {
+  color: white;
+}
+#nav {
+  padding: 30px 0;
+  a {
+    font-weight: bold;
+    color: white;
+    padding-right: 40px;
+    text-decoration: none;
 
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    //
-  }),
-};
-</script>
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>
