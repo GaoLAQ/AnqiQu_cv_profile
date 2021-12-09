@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-card>
+    <v-card class="rounded-0">
       <p>This is a backend page</p>
       <template>
         <v-row>

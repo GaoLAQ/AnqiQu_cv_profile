@@ -1,34 +1,40 @@
 <template>
-  <v-app class="home">
-    <v-img
-      alt="Vue logo"
-      src="https://static.wixstatic.com/media/2d1dc6_51f7672053974900859f2fa05006a2dc~mv2.jpeg/v1/fill/w_1189,h_980,al_c,q_85,usm_0.66_1.00_0.01/2d1dc6_51f7672053974900859f2fa05006a2dc~mv2.webp"
-    />
-    <introducedCard />
+  <v-app id="main-section">
+    <v-card dark id="music-section" class="rounded-0">
+      <video-background
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        style="width: auto; max-height: 400px; height: 100vh"
+        overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
+      >
+      </video-background>
+      <info-app />
+    </v-card>
+
+    <v-card dark id="music-section" class="rounded-0">
+      <music-app />
+    </v-card>
+    <v-card dark id="content-section" class="rounded-0">
+      <contact-form />
+    </v-card>
   </v-app>
 </template>
 
 <script>
 // @ is an alias to /src
 import introducedCard from "@/components/Card.vue";
+import MusicComponent from "../components/MusicComponent.vue";
+import ContactComponent from "../components/ContactComponent.vue";
+import VideoBackground from "vue-responsive-video-background-player";
 
 export default {
   name: "Home",
   components: {
-    introducedCard,
+    "info-app": introducedCard,
+    "music-app": MusicComponent,
+    "contact-form": ContactComponent,
+    "video-background": VideoBackground,
   },
 };
 </script>
 
-<style scoped>
-img {
-  width: 100%;
-  height: 980 px;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-.theme--dark.v-application {
-  background: #1e1e1e;
-  color: #ffffff;
-}
-</style>
+<style scoped></style>
