@@ -1,37 +1,41 @@
 <template>
   <v-container>
     <v-card class="rounded-0" dark>
-      <v-card-text> Leave Your Message </v-card-text>
+      <v-card-title
+        class="bg-news d-flex justify-start text-justify text-xs-h3 text-md-h4 text-lg-h4 text-xl-h4 white--text pa-4"
+      >
+        Contact Me
+      </v-card-title>
       <v-card-text>
         <v-form class="pa-5" v-model="valid">
           <v-row>
             <v-col cols="12" md="4">
               <v-text-field
-                v-model="message.firstname"
+                v-model="firstname"
                 label="First name"
-                required
+                :rules="nameRules"
               ></v-text-field>
             </v-col>
 
             <v-col cols="12" md="4">
               <v-text-field
-                v-model="message.lastname"
+                v-model="lastname"
                 label="Last name"
-                required
+                :rules="nameRules"
               ></v-text-field>
             </v-col>
 
             <v-col cols="12" md="4">
               <v-text-field
-                v-model="message.email"
+                v-model="email"
                 label="E-mail"
-                required
+                :rules="emailRules"
               ></v-text-field>
             </v-col>
           </v-row>
           <v-row>
             <v-col cols="12">
-              <v-textarea outlined v-model="message.form" :rules="messageRules">
+              <v-textarea outlined v-model="form" :rules="messageRules">
               </v-textarea>
             </v-col>
           </v-row>
@@ -52,8 +56,12 @@ export default {
     valid: false,
     firstname: "",
     lastname: "",
-    nameRules: [(v) => !!v || "Name is required"],
+    form: "",
     email: "",
+    nameRules: [
+      (v) => !!v || "Name is required",
+      (v) => v.length <= 10 || "name must be less than 10 characters",
+    ],
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+/.test(v) || "E-mail must be valid",
@@ -64,7 +72,10 @@ export default {
   }),
   methods: {
     submitForm() {
-      console.log(this.valid);
+      this.message.firstname = this.firstname;
+      this.message.lastname = this.lastname;
+      this.message.email = this.email;
+      this.message.form = this.form;
     },
   },
 };

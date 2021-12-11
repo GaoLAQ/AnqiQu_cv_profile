@@ -1,6 +1,11 @@
 <template>
   <v-container>
     <v-card class="pb-5 elevation-0 rounded-0">
+      <v-card-title
+        class="bg-news d-flex justify-start text-justify text-xs-h3 text-md-h4 text-lg-h4 text-xl-h4 white--text pa-4"
+      >
+        Music Player
+      </v-card-title>
       <v-card-title class="d-flex justify-center">
         Playing Now: {{ this.selected.name }}
       </v-card-title>
@@ -40,7 +45,10 @@
       </audio>
     </v-card>
     <v-card v-show="isOpenList">
-      <v-card-title>Music list</v-card-title>
+      <v-card-title
+        class="bg-news d-flex justify-start text-justify text-xs-h3 text-md-h4 text-lg-h4 text-xl-h4 white--text pa-4"
+        >Music list</v-card-title
+      >
       <v-list>
         <v-list-item
           class="d-flex justify-space-around mb-6"
@@ -279,6 +287,7 @@ export default {
 .controls,
 .music-list .header,
 .music-list li {
+  padding: 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;

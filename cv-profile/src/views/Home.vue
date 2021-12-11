@@ -1,12 +1,13 @@
 <template>
   <v-app id="main-section">
     <v-card dark id="music-section" class="rounded-0">
-      <!-- <video-background
-        src="./assets/video.mp4"
-        style="width: auto; max-height: 400px; height: 100vh"
+      <video-background
+        class="mt-4"
+        :src="require('@/assets/video.mp4')"
+        style="max-height: 400px; height: 100vh"
         overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
       >
-      </video-background> -->
+      </video-background>
       <info-app />
     </v-card>
 
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import VideoBackground from "vue-responsive-video-background-player";
 import introducedCard from "@/components/Card.vue";
 import MusicComponent from "../components/MusicComponent.vue";
 import ContactComponent from "../components/ContactComponent.vue";
@@ -31,6 +32,7 @@ export default {
     "info-app": introducedCard,
     "music-app": MusicComponent,
     "contact-form": ContactComponent,
+    "video-background": VideoBackground,
   },
 };
 </script>

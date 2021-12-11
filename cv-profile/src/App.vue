@@ -11,24 +11,23 @@
         </v-card-text>
         <v-divider borderWidth="10" class="mx-5 white"></v-divider>
 
-        <v-card-actions id="nav" class="mx-6 d-flex justify-start">
-          <v-row class="justify-space-start">
+        <v-card-actions id="nav" class="mx-6 d-flex justify-center">
+          <v-row class="justify-center">
             <v-col class="mr-1">
-              <router-link to="/">Home</router-link>
+              <router-link to="/" class="headline">Home</router-link>
             </v-col>
             <v-col class="mr-1">
-              <router-link to="/music">Music</router-link>
+              <router-link to="/music" class="headline">Music</router-link>
             </v-col>
             <v-col class="mr-1">
-              <router-link to="/videos">Videos</router-link>
+              <router-link to="/videos" class="headline">Videos</router-link>
             </v-col>
             <v-col class="mr-1">
-              <router-link to="/anqiCv"> CV </router-link>
+              <router-link to="/anqiCv" class="headline"> CV </router-link>
             </v-col>
           </v-row>
         </v-card-actions>
       </v-card>
-      <v-divider borderWidth="10" class="mx-5 white"></v-divider>
 
       <router-view />
     </v-app>
