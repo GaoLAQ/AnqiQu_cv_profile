@@ -2,7 +2,7 @@
   <v-app id="main-section">
     <v-card dark id="music-section" class="rounded-0">
       <video-background
-        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+        src="./assets/video.mp4"
         style="width: auto; max-height: 400px; height: 100vh"
         overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
       >
