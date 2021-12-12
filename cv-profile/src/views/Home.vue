@@ -12,7 +12,8 @@
     </v-card>
 
     <v-card dark id="music-section" class="rounded-0">
-      <music-app />
+      <!-- <music-app /> -->
+      <audio-player />
     </v-card>
     <v-card dark id="content-section" class="rounded-0">
       <contact-form />
@@ -23,16 +24,18 @@
 <script>
 import VideoBackground from "vue-responsive-video-background-player";
 import introducedCard from "@/components/Card.vue";
-import MusicComponent from "../components/MusicComponent.vue";
+// import MusicComponent from "../components/MusicComponent.vue";
 import ContactComponent from "../components/ContactComponent.vue";
+import AuidoPlayer from "../components/AudioPlayer.vue";
 
 export default {
   name: "Home",
   components: {
     "info-app": introducedCard,
-    "music-app": MusicComponent,
+    // "music-app": MusicComponent,
     "contact-form": ContactComponent,
     "video-background": VideoBackground,
+    "audio-player": AuidoPlayer,
   },
 };
 </script>

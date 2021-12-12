@@ -58,12 +58,12 @@ export default {
             children: [
               {
                 id: 19,
-                name: "",
+                name: "Liyin Private Music School (Part time) - Shenyang, LiaoNing, China",
                 file: "address",
                 children: [
                   {
                     id: 22,
-                    name: "Liyin Private Music School (Part time) - Shenyang, LiaoNing, China",
+                    name: "",
                     file: "item",
                     children: [],
                   },
@@ -71,7 +71,7 @@ export default {
               },
               {
                 id: 20,
-                name: "",
+                name: "May 2015 - Present",
                 file: "time",
                 children: [
                   { id: 20, name: "May 2015 - Present", children: [] },
@@ -86,12 +86,12 @@ export default {
             children: [
               {
                 id: 23,
-                name: "",
+                name: "Shenyang National Music School (Part time) - Shenyang, LiaoNing, China",
                 file: "address",
                 children: [
                   {
                     id: 22,
-                    name: "Shenyang National Music School (Part time) - Shenyang, LiaoNing, China",
+                    name: "",
                     file: "item",
                     children: [],
                   },
@@ -99,7 +99,7 @@ export default {
               },
               {
                 id: 20,
-                name: "",
+                name: "May 2015 - Present",
                 file: "time",
                 children: [
                   {
@@ -130,7 +130,7 @@ export default {
                 children: [
                   {
                     id: 8,
-                    name: "",
+                    name: "Shenyang, Liaoning, China",
                     file: "address",
                     children: [
                       {
@@ -142,7 +142,7 @@ export default {
                   },
                   {
                     id: 9,
-                    name: "",
+                    name: "Sep 2016 - Jun 2019",
                     file: "time",
                     children: [
                       {

@@ -13,8 +13,8 @@
           >
             Born in China and now resident in London, Anqi was a music graduated
             student and willing to become a composer in future; fascinated by
-            screen music, She want to bring its dynamic passion to create
-            inspiring musical worlds
+            screen music, She want to bring her dynamic passion to create
+            inspiring musical worlds.
           </p>
         </v-list-item>
       </v-card-text>

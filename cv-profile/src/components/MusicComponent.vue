@@ -43,6 +43,16 @@
         />
         Your browser does not support the audio tag.
       </audio>
+      <!-- <aplayer
+        ref="myPlayerNew"
+        autoplay
+        :music="{
+          title: 'secret base~君がくれたもの~',
+          artist: 'Silent Siren',
+          src: 'https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_5MG.mp3',
+          pic: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.jpg',
+        }"
+      /> -->
     </v-card>
     <v-card v-show="isOpenList">
       <v-card-title
@@ -72,6 +82,7 @@
 </template>
 
 <script>
+// import Aplayer from "vue-aplayer";
 export default {
   data() {
     return {
@@ -110,6 +121,9 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    // Aplayer,
   },
   created() {
     this.selected = this.playLists[0];
