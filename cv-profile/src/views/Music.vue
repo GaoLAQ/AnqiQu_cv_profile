@@ -1,7 +1,7 @@
 <template>
   <div class="about pa-10">
     <v-row class="mt-3 justify-space-between mb-6">
-      <v-card class="rounded-0" width="450px" height="auto">
+      <v-card dark class="rounded-0" width="450px" height="auto">
         <div class="player-front-part">
           <div class="grid-item-1">
             <v-img src="../assets/poster.jpg" width="150px" />
@@ -22,7 +22,7 @@
         <div class="play-list">
           <v-list>
             <v-list-item
-              class="play-list-item"
+              class="play-list-item ml-6"
               @click="selectedItem(play)"
               v-for="play in playLists"
               :key="play.id"
@@ -31,7 +31,9 @@
               color="transparent"
             >
               <span v-if="!play.isSelected"> {{ play.id }} </span>
-              <span v-else> <v-icon> mdi-volume-high </v-icon></span>
+              <span v-else>
+                <v-icon color="white"> mdi-volume-high </v-icon></span
+              >
               <span class="ml-4"> {{ play.name }}</span>
             </v-list-item>
           </v-list>
@@ -79,20 +81,12 @@ export default {
     },
   },
   methods: {
-    muteMusic() {
-      this.isMuted = true;
-    },
-    getFileInformation() {
-      let duration = document.getElementById("myPlayer").duration;
-      return duration;
-    },
     selectedItem(item) {
       this.selected = item;
       this.selected.isSelected = false;
       let audioElement = document.getElementById("myPlayer");
       audioElement.src = this.selected.src;
       audioElement.play();
-      console.log(this.selected.id);
       this.playLists.map((item) => {
         if (item.id === this.selected.id) {
           item.isSelected = true;
@@ -103,7 +97,6 @@ export default {
       return this.selected;
     },
   },
-  watch: {},
 };
 </script>
 
@@ -111,7 +104,8 @@ export default {
 #myPlayer {
   width: 250px;
   position: relative;
-  top: 40px;
+  top: 105px;
+  height: 20px;
 }
 .v-list-item {
   width: 400px;
@@ -135,6 +129,7 @@ span {
   position: relative;
   top: 18px;
   left: 10px;
+  background: transparent;
 }
 
 .theme--light.v-list {

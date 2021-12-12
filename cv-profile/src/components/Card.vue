@@ -22,7 +22,7 @@
       </v-card-text>
 
       <v-card-actions class="d-flex justify-center mt-4">
-        <v-btn color="white" value="feed">
+        <v-btn color="white" value="feed" class="mb-7">
           <router-link to="/anqiCv"> Discover More Detail </router-link></v-btn
         >
       </v-card-actions>

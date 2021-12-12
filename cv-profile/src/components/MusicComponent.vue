@@ -64,7 +64,7 @@
 
           <p>{{ play.name }}</p>
           <p>{{ play.duration }}</p>
-          <p><v-icon> mdi-heart </v-icon></p>
+          <p>{{ play.time }}</p>
         </v-list-item>
       </v-list>
     </v-card>
@@ -76,18 +76,20 @@ export default {
   data() {
     return {
       musicName: "",
+      isComplete: false,
       songIdx: 0,
       isMuted: true,
       selected: {},
       isOpenList: true,
       isPlay: true,
+      progressWidth: 0,
       playLists: [
         {
           id: 1,
           name: "Sample 1",
           src: "https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_5MG.mp3",
           isSelected: false,
-          duration: "2:30",
+          time: "12/12/2021",
           icon: "mdi-volume-high",
         },
         {
@@ -95,7 +97,7 @@ export default {
           name: "Sample 2",
           src: "http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3",
           isSelected: false,
-          duration: "2:30",
+          time: "12/12/2021",
           icon: "mdi-volume-high",
         },
         {
@@ -103,7 +105,7 @@ export default {
           name: "Sample 3",
           src: "http://jervo.org/zanado/audio/muse.mp3",
           isSelected: false,
-          duration: "2:30",
+          time: "12/12/2021",
           icon: "mdi-volume-high",
         },
       ],
@@ -119,6 +121,11 @@ export default {
   watch: {
     isPlay() {
       this.playLists.map((item) => (item.isSelected = false));
+    },
+    progressWidth: function () {
+      if (this.progressWidth === 100) {
+        this.isPlay = false;
+      }
     },
   },
   methods: {
@@ -192,24 +199,20 @@ export default {
     },
     updateProcessBar() {
       let audioElement = document.getElementById("myPlayer");
-      let musicCurrentTime = document.getElementById("current");
-      let musicDuration = document.getElementById("duration");
+
       let progressBar = document.getElementById("progress-bar");
 
       audioElement.addEventListener("timeupdate", (e) => {
         const currentTime = e.target.currentTime;
         const duration = e.target.duration;
         let progressWidth = (currentTime / duration) * 100;
-
+        this.progressWidth = (currentTime / duration) * 100;
         progressBar.style.width = `${progressWidth}%`;
-
-        audioElement.addEventListener("loadeddata", () => {
-          let audioDuration = musicCurrentTime.duration;
-          let totalMin = Math.floor(audioDuration.duration / 60);
-          let totalSec = Math.floor(audioDuration.duration % 60);
-          musicDuration.innerText = `${totalMin}:${totalSec}`;
-        });
+        if (progressWidth === 100) {
+          this.isPlay = false;
+        }
       });
+
       progressBar.addEventListener("click", (e) => {
         let progressWidthVal = progressBar.clientWidth;
         console.log(progressWidthVal);

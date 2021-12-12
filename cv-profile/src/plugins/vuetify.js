@@ -1,8 +1,11 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib/framework";
 import 'vuetify/dist/vuetify.min.css';
+import AudioPlayer from '@liripeng/vue-audio-player'
+import '@liripeng/vue-audio-player/lib/vue-audio-player.css'
 
 Vue.use(Vuetify);
+Vue.use(AudioPlayer)
 
 export default new Vuetify({
    theme: {
