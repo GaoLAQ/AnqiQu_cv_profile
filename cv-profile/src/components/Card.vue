@@ -10,9 +10,7 @@
         <p
           class="d-flex justify-start text-justify text-xs-h3 text-md-h5 text-lg-h5 text-xl-h5 white--text pa-1"
         >
-          I was a music graduated student and willing to become a composer in
-          future; fascinated by screen music, She want to bring her dynamic
-          passion to create inspiring musical worlds. She is now in London.
+          {{ content }}
         </p>
       </v-list-item>
     </v-card-text>
@@ -26,9 +24,15 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "Card",
   data: () => ({}),
+  computed: {
+    ...mapState({
+      content: (state) => state.config.configContent,
+    }),
+  },
 };
 </script>
 
