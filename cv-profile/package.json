@@ -17,12 +17,14 @@
     "vue-axios": "^3.4.0",
     "vue-responsive-video-background-player": "^1.2.2",
     "vue-router": "^3.5.3",
-    "vuetify": "^2.4.0"
+    "vuetify": "^2.4.0",
+    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.15",
+    "@vue/cli-plugin-vuex": "~4.5.13",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",

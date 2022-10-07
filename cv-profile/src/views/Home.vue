@@ -1,5 +1,6 @@
 <template>
   <v-app id="main-section">
+    <v-divider borderWidth="20" class="mx-5 white"></v-divider>
     <v-card dark id="music-section" class="rounded-0">
       <video-background
         class="mt-4"
@@ -8,13 +9,18 @@
         overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
       >
       </video-background>
+      <v-divider borderWidth="20" class="mx-2 white"></v-divider> . .
       <info-app />
+      <v-divider borderWidth="20" class="mx-2 white"></v-divider>
     </v-card>
+
+    <v-divider borderWidth="20" class="mx-2 white"></v-divider>
 
     <v-card dark id="music-section" class="rounded-0">
       <!-- <music-app /> -->
       <audio-player />
     </v-card>
+    <v-divider borderWidth="20" class="mx-2 white"></v-divider>
     <v-card dark id="content-section" class="rounded-0">
       <contact-form />
     </v-card>
