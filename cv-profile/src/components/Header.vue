@@ -12,7 +12,7 @@
 
     <v-card-actions id="nav" class="mx-6 d-flex justify-center">
       <v-row class="justify-center">
-        <v-col class="mr-1" v-for="config in configTitle" :key="config">
+        <v-col class="mr-1" v-for="config in config.configTitle" :key="config">
           <router-link :to="`${config.url}`" class="headline">
             {{ config.name }}</router-link
           >
@@ -23,28 +23,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "Card",
-  data: () => ({
-    configTitle: [
-      {
-        name: "Home",
-        url: "/",
-      },
-      {
-        name: "Music",
-        url: "/music",
-      },
-      {
-        name: "Videos",
-        url: "/videos",
-      },
-      {
-        name: "CV",
-        url: "/anqiCv",
-      },
-    ],
-  }),
+  data: () => ({}),
+  computed: {
+    ...mapState({ config: (state) => state.config }),
+  },
 };
 </script>
 
