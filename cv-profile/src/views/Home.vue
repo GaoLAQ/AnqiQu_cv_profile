@@ -9,7 +9,7 @@
         overlay="linear-gradient(45deg,#2a4ae430,#fb949e6b)"
       >
       </video-background>
-      <v-divider borderWidth="20" class="mx-2 white"></v-divider> . .
+      <v-divider borderWidth="20" class="mx-2 white"></v-divider>
       <info-app />
       <v-divider borderWidth="20" class="mx-2 white"></v-divider>
     </v-card>
