@@ -9,9 +9,7 @@
           title="Music List"
           style="color: white"
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <v-icon> mdi-music-note-outline </v-icon>
         </a>
 
         <div class="audioPlayerList" :class="{ isActive: isPlaylistActive }">
@@ -21,7 +19,6 @@
             leave-active-class="animated fadeOutDown"
             mode="out-in"
           >
-            <!--<transition name="slide-fade" mode="out-in">-->
           </transition>
           <div class="loader" :key="currentSong">Loading...</div>
           <div
@@ -116,6 +113,8 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   head: {
     link: [
@@ -138,34 +137,13 @@ export default {
       isPlaylistActive: false,
       currentSong: 0,
       debug: false,
-      musicPlaylist: [
-        {
-          title: "Service Bell",
-          artist: "Daniel Simion",
-          url: "https://soundbible.com/mp3/service-bell_daniel_simion.mp3",
-          image: "https://source.unsplash.com/crs2vlkSe98/400x400",
-        },
-        {
-          title: "Meadowlark",
-          artist: "Daniel Simion",
-          url: "https://soundbible.com/mp3/meadowlark_daniel-simion.mp3",
-          image: "https://source.unsplash.com/35bE_njbG9E/400x400",
-        },
-        {
-          title: "Hyena Laughing",
-          artist: "Daniel Simion",
-          url: "https://soundbible.com/mp3/hyena-laugh_daniel-simion.mp3",
-          image: "https://source.unsplash.com/Esax9RaEl2I/400x400",
-        },
-        {
-          title: "Creepy Background",
-          artist: "Daniel Simion",
-          url: "http://soundbible.com/mp3/creepy-background-daniel_simon.mp3",
-          image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
-        },
-      ],
       audioFile: "",
     };
+  },
+  computed: {
+    ...mapState({
+      musicPlaylist: (state) => state.musicPlaylist,
+    }),
   },
   mounted: function () {
     this.changeSong();
