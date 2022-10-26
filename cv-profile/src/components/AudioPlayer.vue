@@ -2,15 +2,13 @@
   <v-container>
     <v-card>
       <div class="audioPlayer" id="app">
-        <a
+        <v-app-bar-nav-icon
           class="nav-icon"
           v-on:click="isPlaylistActive = !isPlaylistActive"
           :class="{ isActive: isPlaylistActive }"
           title="Music List"
           style="color: white"
-        >
-          <v-icon> mdi-music-note-outline </v-icon>
-        </a>
+        ></v-app-bar-nav-icon>
 
         <div class="audioPlayerList" :class="{ isActive: isPlaylistActive }">
           <transition

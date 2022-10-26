@@ -36,12 +36,14 @@ export default new Vuex.Store({
         source:
           "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         title: "Big Buck Bunny",
+        date: "2020-10-16 19:46",
       },
       {
         description: "The first Blender Open Movie from 2006",
         source:
           "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
         title: "Elephant Dream",
+        date: "2020-10-16 19:46",
       },
       {
         description:
@@ -49,32 +51,41 @@ export default new Vuex.Store({
         source:
           "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
         title: "For Bigger Blazes",
+        date: "2020-10-16 19:46",
       },
     ],
     musicPlaylist: [
       {
         title: "Service Bell",
         artist: "Daniel Simion",
+        description: "sample description",
         url: "https://soundbible.com/mp3/service-bell_daniel_simion.mp3",
         image: "https://source.unsplash.com/crs2vlkSe98/400x400",
+        date: "2020-10-16 19:46",
       },
       {
         title: "Meadowlark",
         artist: "Daniel Simion",
+        description: "sample description",
         url: "https://soundbible.com/mp3/meadowlark_daniel-simion.mp3",
         image: "https://source.unsplash.com/35bE_njbG9E/400x400",
+        date: "2020-10-16 19:46",
       },
       {
         title: "Hyena Laughing",
         artist: "Daniel Simion",
+        description: "sample description",
         url: "https://soundbible.com/mp3/hyena-laugh_daniel-simion.mp3",
         image: "https://source.unsplash.com/Esax9RaEl2I/400x400",
+        date: "2020-10-16 19:46",
       },
       {
         title: "Creepy Background",
         artist: "Daniel Simion",
+        description: "sample description",
         url: "http://soundbible.com/mp3/creepy-background-daniel_simon.mp3",
         image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
+        date: "2020-10-16 19:46",
       },
     ],
     cv: {
