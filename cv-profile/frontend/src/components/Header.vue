@@ -12,7 +12,11 @@
 
     <v-card-actions id="nav" class="mx-6 d-flex justify-center">
       <v-row class="justify-center">
-        <v-col class="mr-1" v-for="config in config.configTitle" :key="config">
+        <v-col
+          class="mr-1"
+          v-for="config in config.configTitle"
+          :key="config.url"
+        >
           <router-link :to="`${config.url}`" class="headline">
             {{ config.name }}</router-link
           >
