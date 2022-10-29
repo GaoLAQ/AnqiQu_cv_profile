@@ -1,17 +1,14 @@
 <template>
   <div>
-    <v-btn color="primary" class="ma-2" dark @click="dialog = true">
-      {{ title }}
-    </v-btn>
+    <v-icon color="grey" @click="dialog = true" large> mdi-plus </v-icon>
     <v-dialog v-model="dialog" width="40%">
       <v-card>
         <v-card-title> {{ title }} </v-card-title>
-        <v-form v-model="valid">
+        <v-form>
           <v-row v-if="isMusic">
             <v-col cols="10" class="ma-3">
               <v-text-field
                 v-model="musicForm.title"
-                :rules="nameRules"
                 :counter="10"
                 label="Music Title"
                 required
@@ -39,7 +36,6 @@
             <v-col class="ma-3">
               <v-text-field
                 v-model="videoForm.title"
-                :rules="nameRules"
                 :counter="10"
                 label="Video Title"
                 outlined
@@ -87,6 +83,9 @@
 </template>
 
 <script>
+import musicService from "@/services/musicService.js";
+import videoService from "@/services/videoService.js";
+
 export default {
   props: {
     title: String,
@@ -94,7 +93,7 @@ export default {
   },
   data() {
     return {
-      dialog: true,
+      dialog: false,
       musicForm: {
         title: "",
         description: "",
@@ -115,8 +114,10 @@ export default {
       // save store
       if (isMusic) {
         alert(JSON.stringify(this.musicForm));
+        musicService.addMusic(this.musicForm);
       } else {
         alert(JSON.stringify(this.videoForm));
+        alert(videoService);
       }
     },
     closeForm() {
