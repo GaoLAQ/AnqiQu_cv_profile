@@ -49,15 +49,10 @@ export default {
           email: this.userName,
           password: this.userPassword,
         });
+        this.$router.push({ name: "Login" });
       } catch (error) {
         this.error = error.response.data.error;
       }
-
-      console.log(
-        "register button was clicked",
-        this.userName,
-        this.userPassword
-      );
     },
   },
 };

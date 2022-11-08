@@ -3,6 +3,7 @@
     <v-card-text>
       <p
         class="text-xl-h1 text-lg-h1 text-md-h2 text-sm-h2 text-xs-h2 white--text text-justify"
+        @click="homeRouter"
       >
         Anqi Qu
       </p>
@@ -21,6 +22,24 @@
             {{ config.name }}</router-link
           >
         </v-col>
+        <v-col v-if="isUserLoggedIn">
+          <router-link
+            :to="{ name: 'backEnd' }"
+            class="headline"
+            v-if="isUserLoggedIn"
+          >
+            My Setting
+          </router-link>
+        </v-col>
+        <v-col v-if="isUserLoggedIn">
+          <router-link
+            :to="{ name: 'home' }"
+            class="headline"
+            v-if="isUserLoggedIn"
+          >
+            Log Out
+          </router-link>
+        </v-col>
       </v-row>
     </v-card-actions>
   </v-card>
@@ -33,6 +52,16 @@ export default {
   data: () => ({}),
   computed: {
     ...mapState({ config: (state) => state.config }),
+    ...mapState({ isUserLoggedIn: (state) => state.isUserLoggedIn }),
+  },
+  methods: {
+    homeRouter() {
+      this.$router.push({ name: "Home" });
+    },
+    logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUser", null);
+    },
   },
 };
 </script>
