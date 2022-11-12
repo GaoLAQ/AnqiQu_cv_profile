@@ -1,14 +1,3 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import musicService from "../services/musicService";
-
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {
-    token: null,
-    user: null,
-    isUserLoggedIn: false,
     config: {
       configTitle: [
         {
@@ -58,7 +47,40 @@ export default new Vuex.Store({
         date: "2020-10-16 19:46",
       },
     ],
-    musicPlaylist: [],
+    musicPlaylist: [
+      {
+        title: "Service Bell",
+        artist: "Daniel Simion",
+        description: "sample description",
+        url: "https://soundbible.com/mp3/service-bell_daniel_simion.mp3",
+        image: "https://source.unsplash.com/crs2vlkSe98/400x400",
+        date: "2020-10-16 19:46",
+      },
+      {
+        title: "Meadowlark",
+        artist: "Daniel Simion",
+        description: "sample description",
+        url: "https://soundbible.com/mp3/meadowlark_daniel-simion.mp3",
+        image: "https://source.unsplash.com/35bE_njbG9E/400x400",
+        date: "2020-10-16 19:46",
+      },
+      {
+        title: "Hyena Laughing",
+        artist: "Daniel Simion",
+        description: "sample description",
+        url: "https://soundbible.com/mp3/hyena-laugh_daniel-simion.mp3",
+        image: "https://source.unsplash.com/Esax9RaEl2I/400x400",
+        date: "2020-10-16 19:46",
+      },
+      {
+        title: "Creepy Background",
+        artist: "Daniel Simion",
+        description: "sample description",
+        url: "http://soundbible.com/mp3/creepy-background-daniel_simon.mp3",
+        image: "https://source.unsplash.com/j0g8taxHZa0/400x400",
+        date: "2020-10-16 19:46",
+      },
+    ],
     cv: {
       work: {
         header: [
@@ -148,44 +170,3 @@ export default new Vuex.Store({
         ],
       },
     },
-  },
-  mutations: {
-    setToken(state, token) {
-      state.token = token;
-      if (token) {
-        state.isUserLoggedIn = true;
-      } else {
-        state.isUserLoggedIn = false;
-      }
-    },
-    setUser(state, user) {
-      state.user = user;
-    },
-    setMusic(state, music) {
-      state.musicPlaylist = music;
-    },
-  },
-  actions: {
-    setToken({ commit }, token) {
-      commit("setToken", token);
-    },
-    setUser({ commit }, user) {
-      commit("setUser", user);
-    },
-    async fetchAllMusic(context) {
-      try {
-        const allMusic = await musicService.getAllMusic();
-        context.commit("setMusic", allMusic.data);
-        console.log("testing.......................", allMusic);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-  getters: {
-    getAllMusic(state) {
-      return state.musicPlaylist;
-    },
-  },
-  modules: {},
-});

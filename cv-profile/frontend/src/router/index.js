@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Register from "@/components/Register";
 import Login from "@/components/Login";
+import Dialog from "@/components/Dialog"
 
 Vue.use(VueRouter);
 
@@ -32,9 +33,14 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Music.vue"),
   },
   {
-    path: "/videos",
-    name: "Videos",
-    component: () => import("../views/Videos.vue"),
+    path:"/music/:id",
+    name:"Dialog", 
+    component: Dialog
+  },
+  {
+    path: "/video",
+    name: "Video",
+    component: () => import("../views/Video.vue"),
   },
   {
     path: "/AnqiCv",

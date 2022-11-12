@@ -15,4 +15,7 @@ module.exports = (app) => {
   app.get("/music", musicController.getAllMusic);
   app.post("/music", musicController.addMusic);
   app.get("/videos", videoController.getAllVideo);
+  // app.get("/music/:musicId", musicController.showSingleMusic);
+  app.put("/music/:musicId", musicController.editSingleMusic);
+  app.delete("/music/:musicId", musicController.deleteSingleMusic);
 };
