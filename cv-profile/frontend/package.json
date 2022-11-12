@@ -10,6 +10,7 @@
   "dependencies": {
     "@liripeng/vue-audio-player": "^1.2.11",
     "core-js": "^3.6.5",
+    "eslint-plugin-vue": "^9.7.0",
     "express": "^4.17.1",
     "vue": "^2.6.11",
     "vue-axios": "^3.4.0",
@@ -21,7 +22,6 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-router": "^5.0.8",
     "@vue/cli-plugin-vuex": "^5.0.8",
     "@vue/cli-service": "^5.0.8",

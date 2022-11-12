@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-icon color="grey" @click="dialog = true" large> mdi-plus </v-icon>
+    <v-btn icon fab>
+      <v-icon v-if="!singleMusic" color="grey" @click="openForm()" large>
+        mdi-plus
+      </v-icon>
+    </v-btn>
+
     <v-dialog v-model="dialog" width="40%">
       <v-card>
         <v-card-title> {{ title }} </v-card-title>
@@ -71,7 +76,7 @@
             {{ videoForm }}
             <v-card-actions>
               <v-btn color="primary" text @click="submitForm(isMusic)">
-                Confirm
+                Save
               </v-btn>
               <v-btn color="primary" text @click="closeForm()"> Close </v-btn>
             </v-card-actions>
@@ -84,12 +89,19 @@
 
 <script>
 import musicService from "@/services/musicService.js";
-import videoService from "@/services/videoService.js";
+// import videoService from "@/services/videoService.js";
 
 export default {
   props: {
     title: String,
     isMusic: Boolean,
+    singleMusic: Object,
+    editedIndex: Number,
+  },
+  created() {
+    if (this.editedIndex > -1) {
+      this.musicForm = Object.assign({}, this.singleMusic);
+    }
   },
   data() {
     return {
@@ -110,18 +122,19 @@ export default {
     };
   },
   methods: {
-    submitForm(isMusic) {
-      // save store
-      if (isMusic) {
-        alert(JSON.stringify(this.musicForm));
-        musicService.addMusic(this.musicForm);
+    async submitForm() {
+      if (this.editedIndex > -1) {
+        await musicService.editSingleMusic(this.editedIndex, this.musicForm);
       } else {
-        alert(JSON.stringify(this.videoForm));
-        alert(videoService);
+        await musicService.addMusic(this.musicForm);
       }
+      // save store
     },
     closeForm() {
       this.dialog = false;
+    },
+    openForm() {
+      this.dialog = true;
     },
   },
 };
