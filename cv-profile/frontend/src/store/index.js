@@ -72,6 +72,7 @@ export default new Vuex.Store({
           { text: "Company", value: "company" },
           { text: "Location", value: "location" },
           { text: "Duration", value: "duration" },
+          { text: "Actions", value: "actions" },
         ],
         items: [
           {

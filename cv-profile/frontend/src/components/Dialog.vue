@@ -25,15 +25,17 @@
                 required
                 outlined
               ></v-textarea>
-
               <v-file-input
                 v-if="isMusic"
-                prepend-icon="mdi-music-note-plus"
-                multiple
-                hint="upload music"
-                v-model="musicForm.musicFile"
+                v-model="musicFile"
+                color="success"
+                show-size
                 outlined
               ></v-file-input>
+              <v-list>
+                <v-list-item v-for="file in uploadedFiles" :key="file.id">
+                </v-list-item>
+              </v-list>
             </v-col>
           </v-row>
 
@@ -98,13 +100,22 @@ export default {
     singleMusic: Object,
     editedIndex: Number,
   },
-  created() {
+  async created() {
     if (this.editedIndex > -1) {
       this.musicForm = Object.assign({}, this.singleMusic);
+    }
+    // fetch data
+    try {
+      const response = await musicService.fetchUploadedMusic();
+      console.log("response!!!!!!!!!!!!", response);
+    } catch (err) {
+      console.log(err);
     }
   },
   data() {
     return {
+      uploadedFiles: [],
+      musicFile: null,
       dialog: false,
       musicForm: {
         title: "",
@@ -122,13 +133,16 @@ export default {
     };
   },
   methods: {
-    async submitForm() {
+    submitForm() {
       if (this.editedIndex > -1) {
-        await musicService.editSingleMusic(this.editedIndex, this.musicForm);
+        musicService.editSingleMusic(this.editedIndex, this.musicForm);
       } else {
-        await musicService.addMusic(this.musicForm);
+        musicService.addMusic(this.musicForm);
+        let formData = new FormData();
+        formData.append("file", this.musicFile, this.musicFile.name);
+        musicService.uploadMusic(formData);
+        this.musicFile = "";
       }
-      // save store
     },
     closeForm() {
       this.dialog = false;

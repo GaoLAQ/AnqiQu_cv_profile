@@ -54,7 +54,6 @@
                 </v-col>
               </v-card-actions>
             </v-card-text>
-            {{ music }}
 
             <Dialog
               ref="dialog"

@@ -17,7 +17,10 @@ export default {
   deleteSingleMusic(musicId) {
     return Api().delete(`music/${musicId}`);
   },
+  uploadMusic(file) {
+    return Api().post("uploadMusic", file);
+  },
+  fetchUploadedMusic() {
+    return Api().get("uploadMusic");
+  },
 };
-
-// /songs
-// /songs/:id

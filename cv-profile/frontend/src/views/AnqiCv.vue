@@ -17,6 +17,7 @@
       </p>
 
       <data-table :header="cv.work.header" :item="cv.work.items" />
+      <editable-data-table :header="cv.work.header" :item="cv.work.items" />
       <br />
       <p class="display-1 text-justify text-truncate" style="color: black">
         Eductation
@@ -37,11 +38,13 @@
 <script>
 import { mapState } from "vuex";
 import datatable from "@/components/Datatable.vue";
+import newDataTable from "@/components/NewDataTable.vue";
 
 export default {
   data: () => ({}),
   components: {
     "data-table": datatable,
+    "editable-data-table": newDataTable,
   },
   computed: {
     ...mapState({ content: (state) => state.config.content }),

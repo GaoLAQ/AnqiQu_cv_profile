@@ -1,4 +1,5 @@
 const { Music } = require("../models");
+const { UploadMusic } = require("../models");
 
 module.exports = {
   async getAllMusic(req, res) {
@@ -39,15 +40,6 @@ module.exports = {
     }
   },
   async deleteSingleMusic(req, res) {
-    // const music = await Music.findOne({
-    //   id: req.params.musicId,
-    // });
-
-    // music.destory().then(function () {
-    //   res.status(200).json({
-    //     message: "User deleted",
-    //   });
-    // });
     try {
       const deletedMusic = await Music.findOne({
         where: {
@@ -64,6 +56,24 @@ module.exports = {
       res.redirect("/");
     } catch (error) {
       console.log(error);
+    }
+  },
+  async uploadMusic(req, res) {
+    try {
+      const uploadedMusic = await UploadMusic.create({ file: req.file.path });
+      res.send(uploadedMusic);
+    } catch (error) {
+      console.log("err happened in the uploading");
+    }
+  },
+  async fetchMusic(req, res) {
+    try {
+      const fetchUploadedMusic = await UploadMusic.findAll({
+        limit: 10,
+      });
+      res.send(fetchUploadedMusic);
+    } catch (error) {
+      console.log("we have a fetch problem to the uploaded file");
     }
   },
 };
